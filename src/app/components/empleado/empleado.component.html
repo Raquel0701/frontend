@@ -1,0 +1,21 @@
+<!-- lista-usuarios.component.html -->
+
+<div class="container">
+    <h1>Empleados</h1>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let usuario of empleados">
+        <div class="card">
+          <!-- <img class="card-img-top" src="{{ usuario.imagen }}" alt="Imagen de {{ usuario.nombre }}"> -->
+          <div class="card-body">
+            <h5 class="card-title">{{ usuario.nombre }}</h5>
+            <p class="card-text">{{ usuario.cargo }}</p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="#" class="m-1 btn btn-sm btn-primary"><i class="bi bi-pencil"></i> Editar</a> 
+            <a href="#" class="m-1 btn btn-sm btn-danger"><i class="bi bi-trash"></i> Eliminar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

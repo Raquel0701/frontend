@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HttpClientModule } from '@angular/common/http';
-// Importa todos los iconos de Bootstrap Icons
+import { EmpleadoComponent } from './components/empleado/empleado.component';
 
 
 @NgModule({
-  declarations: [AppComponent, ListaUsuariosComponent, PerfilComponent],
+  declarations: [AppComponent, ListaUsuariosComponent, PerfilComponent, EmpleadoComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
