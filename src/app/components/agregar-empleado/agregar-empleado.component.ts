@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import Swal from 'sweetalert2';
-import { EmpleadoService } from 'src/app/services/empleado.service';
+import { EmpleadoService } from '../../services/empleado.service';
 
 @Component({
   selector: 'app-agregar-empleado',

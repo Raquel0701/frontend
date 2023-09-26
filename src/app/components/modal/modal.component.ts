@@ -1,7 +1,8 @@
 // modal.component.ts
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { EmpleadoService } from 'src/app/services/empleado.service';
+import { EmpleadoService } from '../../services/empleado.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -19,8 +20,13 @@ export class MiModalComponent {
       .editarEmpleado(this.data.empleado._id, this.data.empleado)
       .subscribe(
         (empleadoEditado) => {
-          console.log('Cambios guardados:', empleadoEditado);
-          // Cierra el modal después de guardar cambios
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Actualzado correctamente',
+            showConfirmButton: false,
+            timer: 1500,
+          });
           this.dialogRef.close(empleadoEditado);
           // this.dialogRef.close(this.data.empleado);
         },
