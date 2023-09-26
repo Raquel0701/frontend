@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import Swal from 'sweetalert2';
-import { EmpleadoService } from '../../services/empleado.service';
+import { EmpleadoService } from 'src/app/services/empleado.service';
 
 @Component({
   selector: 'app-agregar-empleado',
@@ -16,7 +16,7 @@ export class AgregarEmpleadoComponent {
     sueldo: 0,
   };
 
-  constructor(private empleadoService: EmpleadoService) {} 
+  constructor(private empleadoService: EmpleadoService) {}
 
   agregarEmpleado() {
     this.empleadoService.agregarEmpleado(this.nuevoEmpleado).subscribe(

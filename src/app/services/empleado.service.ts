@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Empleado } from '../models/empleado.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmpleadoService {
   private apiUrl = 'http://localhost:3000/api/empleados';
@@ -16,5 +16,9 @@ export class EmpleadoService {
   }
   agregarEmpleado(empleado: Empleado): Observable<Empleado> {
     return this.http.post<Empleado>(this.apiUrl, empleado);
+  }
+  editarEmpleado(id: string, empleado: Empleado): Observable<Empleado> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<Empleado>(url, empleado);
   }
 }

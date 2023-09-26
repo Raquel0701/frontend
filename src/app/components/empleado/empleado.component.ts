@@ -1,7 +1,9 @@
-// components/empleado/empleado.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Empleado } from '../../models/empleado.model';
-import { EmpleadoService } from '../../services/empleado.service';
+import { EmpleadoService } from '../../services/empleado.service'
+import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { MiModalComponent } from '../mi-modal/mi-modal.component';
 
 @Component({
   selector: 'app-empleado',
@@ -10,7 +12,11 @@ import { EmpleadoService } from '../../services/empleado.service';
 })
 export class EmpleadoComponent implements OnInit {
   empleados: Empleado[] = [];
-  constructor(private empleadoService: EmpleadoService) {}
+  modalAbierto = false;
+  constructor(
+    private empleadoService: EmpleadoService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.obtenerEmpleados();
@@ -28,5 +34,17 @@ export class EmpleadoComponent implements OnInit {
   }
   onEmpleadoAgregado() {
     this.obtenerEmpleados();
+  }
+  abrirModal(empleado: Empleado) {
+    const dialogRef = this.dialog.open(MiModalComponent, {
+      data: { empleado: empleado },
+    });
+    console.log('datos eme', empleado);
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`El resultado del modal es:`, result);
+      if (result) {
+        this.obtenerEmpleados();
+      }
+    });
   }
 }
