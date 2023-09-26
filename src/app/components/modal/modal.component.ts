@@ -1,11 +1,11 @@
-// mi-modal.component.ts
+// modal.component.ts
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 @Component({
-  selector: 'app-mi-modal',
-  templateUrl: './mi-modal.component.html',
-  styleUrls: ['./mi-modal.component.css'],
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.css'],
 })
 export class MiModalComponent {
   constructor(

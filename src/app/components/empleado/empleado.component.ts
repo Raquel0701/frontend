@@ -3,7 +3,7 @@ import { Empleado } from '../../models/empleado.model';
 import { EmpleadoService } from '../../services/empleado.service'
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
-import { MiModalComponent } from '../mi-modal/mi-modal.component';
+import { MiModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-empleado',

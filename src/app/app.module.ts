@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmpleadoComponent } from './components/empleado/empleado.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { AgregarEmpleadoComponent } from './components/agregar-empleado/agregar-empleado.component';
-import { MiModalComponent } from './components/mi-modal/mi-modal.component';
+import { MiModalComponent } from './components/modal/modal.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({

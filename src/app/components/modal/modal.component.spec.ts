@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MiModalComponent } from './mi-modal.component';
+import { MiModalComponent } from './modal.component';
 
 describe('MiModalComponent', () => {
   let component: MiModalComponent;
