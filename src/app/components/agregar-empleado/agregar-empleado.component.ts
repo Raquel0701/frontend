@@ -16,15 +16,12 @@ export class AgregarEmpleadoComponent {
     sueldo: 0,
   };
 
-  constructor(private empleadoService: EmpleadoService) {} // Inyecta el servicio
+  constructor(private empleadoService: EmpleadoService) {} 
 
   agregarEmpleado() {
-    // Llama al servicio para agregar el nuevo empleado al servidor
     this.empleadoService.agregarEmpleado(this.nuevoEmpleado).subscribe(
       (empleado) => {
         console.log('Empleado agregado:', empleado);
-        // Puedes realizar otras acciones después de agregar el empleado, como cerrar el modal o mostrar un mensaje de éxito.
-        // Por ejemplo, aquí puedes mostrar un SweetAlert2 de éxito.
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -36,8 +33,6 @@ export class AgregarEmpleadoComponent {
       },
       (error) => {
         console.error('Error al agregar el empleado:', error);
-        // Puedes manejar errores aquí, como mostrar un mensaje de error.
-        // Por ejemplo, aquí puedes mostrar un SweetAlert2 de error.
         Swal.fire('Error', 'No se pudo agregar el empleado', 'error');
       }
     );
