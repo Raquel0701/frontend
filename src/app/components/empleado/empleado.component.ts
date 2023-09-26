@@ -6,11 +6,10 @@ import { EmpleadoService } from '../../services/empleado.service';
 @Component({
   selector: 'app-empleado',
   templateUrl: './empleado.component.html',
-  styleUrls: ['./empleado.component.css']
+  styleUrls: ['./empleado.component.css'],
 })
 export class EmpleadoComponent implements OnInit {
   empleados: Empleado[] = [];
-
   constructor(private empleadoService: EmpleadoService) {}
 
   ngOnInit() {
@@ -27,6 +26,7 @@ export class EmpleadoComponent implements OnInit {
       }
     );
   }
-
-  // Puedes agregar más funciones y lógica aquí según tus necesidades.
+  onEmpleadoAgregado() {
+    this.obtenerEmpleados();
+  }
 }

@@ -1,0 +1,64 @@
+<div class="container">
+  <!-- <h2>Agregar Nuevo Empleado</h2> -->
+  <form (submit)="agregarEmpleado()">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            [(ngModel)]="nuevoEmpleado.nombre"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="cargo">Cargo:</label>
+          <input
+            type="text"
+            id="cargo"
+            name="cargo"
+            [(ngModel)]="nuevoEmpleado.cargo"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="departamento">Departamento:</label>
+          <input
+            type="text"
+            id="departamento"
+            name="departamento"
+            [(ngModel)]="nuevoEmpleado.departamento"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="sueldo">Sueldo:</label>
+          <input
+            type="number"
+            id="sueldo"
+            name="sueldo"
+            [(ngModel)]="nuevoEmpleado.sueldo"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <br>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+      </div>
+    </div>
+  </form>
+</div>

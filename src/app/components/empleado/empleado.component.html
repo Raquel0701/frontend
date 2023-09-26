@@ -2,6 +2,10 @@
 
 <div class="container">
   <h1>Empleados</h1>
+  <app-agregar-empleado (empleadoAgregado)="onEmpleadoAgregado()"></app-agregar-empleado>
+  <hr>
+  <!-- empleado.component.html -->
+
   <table class="table">
     <thead>
       <tr>
@@ -19,8 +23,12 @@
         <td>{{ usuario.departamento }}</td>
         <td>{{ usuario.sueldo }}</td>
         <td>
-          <a href="#" class="btn btn-primary"><i class="bi bi-pencil"></i> Editar</a> 
-          <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</a>
+          <a href="#" class="btn btn-primary"
+            ><i class="bi bi-pencil"></i> Editar</a
+          >
+          <a href="#" class="btn btn-danger"
+            ><i class="bi bi-trash"></i> Eliminar</a
+          >
         </td>
       </tr>
     </tbody>
