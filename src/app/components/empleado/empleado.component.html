@@ -1,10 +1,28 @@
-<!-- lista-usuarios.component.html -->
 
-<div class="container">
-  <h1>EMPLEADOS</h1>
-  <app-agregar-empleado
-    (empleadoAgregado)="onEmpleadoAgregado()"
-  ></app-agregar-empleado>
+<div class="container mt-5">
+
+  <div class="row">
+    <div class="col-9">
+      <app-agregar-empleado
+        (empleadoAgregado)="onEmpleadoAgregado()"
+      ></app-agregar-empleado>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <br />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar empleado por nombre"
+          [(ngModel)]="busqueda"
+          (input)="filtrarEmpleados()"
+        />
+      </div>
+      <!-- <button class="btn btn-primary" (click)="filtrarEmpleados()">
+        Buscar
+      </button> -->
+    </div>
+  </div>
 
   <hr />
 
@@ -19,7 +37,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let usuario of empleados">
+      <tr *ngFor="let usuario of empleadosFiltrados">
         <td>{{ usuario.nombre }}</td>
         <td>{{ usuario.cargo }}</td>
         <td>{{ usuario.departamento }}</td>

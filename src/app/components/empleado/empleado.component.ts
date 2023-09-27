@@ -13,6 +13,9 @@ import { MiModalComponent } from '../modal/modal.component';
 export class EmpleadoComponent implements OnInit {
   empleados: Empleado[] = [];
   modalAbierto = false;
+  empleadosFiltrados: Empleado[] = [];
+  busqueda: string = '';
+
   constructor(
     private empleadoService: EmpleadoService,
     public dialog: MatDialog
@@ -26,6 +29,7 @@ export class EmpleadoComponent implements OnInit {
     this.empleadoService.obtenerEmpleados().subscribe(
       (data) => {
         this.empleados = data;
+        this.filtrarEmpleados();
       },
       (error) => {
         console.error('Error al obtener la lista de empleados:', error);
@@ -76,5 +80,16 @@ export class EmpleadoComponent implements OnInit {
         );
       }
     });
+  }
+  filtrarEmpleados() {
+    if (this.busqueda) {
+      // Filtra los empleados según el texto de búsqueda
+      this.empleadosFiltrados = this.empleados.filter((empleado) =>
+        empleado.nombre.toLowerCase().includes(this.busqueda.toLowerCase())
+      );
+    } else {
+      // Si no hay texto de búsqueda, muestra todos los empleados
+      this.empleadosFiltrados = [...this.empleados];
+    }
   }
 }

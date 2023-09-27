@@ -22,7 +22,7 @@ export class MiModalComponent {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Actualzado correctamente',
+            title: 'Actualizado correctamente',
             showConfirmButton: false,
             timer: 1500,
           });
