@@ -21,4 +21,8 @@ export class EmpleadoService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.put<Empleado>(url, empleado);
   }
+  eliminarEmpleado(id: string): Observable<void> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
 }

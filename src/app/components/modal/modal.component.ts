@@ -1,4 +1,3 @@
-// modal.component.ts
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmpleadoService } from '../../services/empleado.service';
@@ -21,18 +20,16 @@ export class MiModalComponent {
       .subscribe(
         (empleadoEditado) => {
           Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'Actualzado correctamente',
             showConfirmButton: false,
             timer: 1500,
           });
           this.dialogRef.close(empleadoEditado);
-          // this.dialogRef.close(this.data.empleado);
         },
         (error) => {
           console.error('Error al editar empleado:', error);
-          // Maneja el error aquí si es necesario
         }
       );
 

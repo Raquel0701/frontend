@@ -27,14 +27,18 @@
         <td>
           <button
             type="button"
-            class="btn btn-sm  btn-primary"
+            class="btn btn-sm btn-primary"
             (click)="abrirModal(usuario)"
           >
-          <i class="fa fa-edit"></i>
+            <i class="fa fa-edit"></i>
           </button>
-          <a href="#" class="btn btn-sm  btn-danger m-1">
+          <button
+            type="button"
+            class="btn btn-sm btn-danger m-1"
+            (click)="eliminarEmpleado(usuario._id)"
+          >
             <i class="fa fa-trash"></i>
-          </a>
+          </button>
         </td>
       </tr>
     </tbody>
