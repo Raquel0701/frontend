@@ -1,65 +1,85 @@
-
 <div class="container mt-5">
-
   <div class="row">
-    <div class="col-9">
+    <div class="col-3 bg-light">
       <app-agregar-empleado
         (empleadoAgregado)="onEmpleadoAgregado()"
       ></app-agregar-empleado>
     </div>
-    <div class="col">
-      <div class="form-group">
-        <br />
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Buscar empleado por nombre"
-          [(ngModel)]="busqueda"
-          (input)="filtrarEmpleados()"
-        />
+    <div class="col row justify-content-end">
+      <div class="col-5 mb-2 mt-2 tex-end">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search"
+            [(ngModel)]="busqueda"
+            (input)="filtrarEmpleados()"
+          />
+        </div>
       </div>
-      <!-- <button class="btn btn-primary" (click)="filtrarEmpleados()">
-        Buscar
-      </button> -->
+      <div class="row">
+        <div class="col-md-4" *ngFor="let empleado of empleadosFiltrados">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="text-center">{{ empleado.nombre }}</div>
+              <div
+                class="progress"
+                style="height: 2px; background-color: orange"
+              >
+                <div class="progress-bar bg-warning" style="width: 20px"></div>
+              </div>
+
+              <div class="card-text row">
+                <div>
+                  <small>Cargo:</small><br />
+                  <div>
+                    {{ empleado.cargo }}
+                  </div>
+                </div>
+              </div>
+              <div class="card-text row">
+                <div>
+                  <small>Departamento:</small><br />
+                  <div>
+                    {{ empleado.departamento }}
+                  </div>
+                </div>
+              </div>
+              <div class="card-text row">
+                <div>
+                  <small>Sueldo:</small><br />
+                  <div>
+                    {{ empleado.sueldo }}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-sm btn-secondary"
+                (click)="abrirModal(empleado)"
+              >
+                <i class="fa fa-edit"></i> Editar
+              </button>
+              <button
+                type="button"
+                class="btn btn-sm btn-light m-1"
+                (click)="eliminarEmpleado(empleado._id)"
+              >
+                <i class="fa fa-trash"></i> Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!empleadosFiltrados">
+          <div class="alert alert-warning" role="alert">
+            <strong>¡Sin resultados!</strong> No se encontraron resultados para
+            la búsqueda.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <hr />
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Cargo</th>
-        <th>Departamento</th>
-        <th>Sueldo</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let usuario of empleadosFiltrados">
-        <td>{{ usuario.nombre }}</td>
-        <td>{{ usuario.cargo }}</td>
-        <td>{{ usuario.departamento }}</td>
-        <td>{{ usuario.sueldo }}</td>
-        <td>
-          <button
-            type="button"
-            class="btn btn-sm btn-primary"
-            (click)="abrirModal(usuario)"
-          >
-            <i class="fa fa-edit"></i>
-          </button>
-          <button
-            type="button"
-            class="btn btn-sm btn-danger m-1"
-            (click)="eliminarEmpleado(usuario._id)"
-          >
-            <i class="fa fa-trash"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- Botón para abrir el modal -->
 </div>
